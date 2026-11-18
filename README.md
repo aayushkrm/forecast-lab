@@ -53,4 +53,4 @@ The model improves on these baselines in this one selected historical period. It
 - The mean-shift heuristic is sensitive to seasonality and is not calibrated for operational alerts.
 - The benchmark measures sequential local HTTP requests, including response parsing; it is not a concurrency or production capacity test.
 
-The related [agent trajectory evaluation project](agent-trace-eval/README.md) demonstrates deterministic tests for tool-use workflows. [Career research](docs/career-research.md) explains why these projects fit the resume and current hiring examples.
+The separate [agent trajectory evaluation project](https://github.com/aayushkrm/agent-trace-eval) demonstrates deterministic tests for tool-use workflows. [Career research](docs/career-research.md) explains why these projects fit the resume and current hiring examples.
