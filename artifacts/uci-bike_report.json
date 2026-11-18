@@ -23,7 +23,7 @@
       },
       "ridge": {
         "mae": 56.114316093111896,
-        "rmse": 84.53637302779816
+        "rmse": 84.53637302779818
       }
     },
     "test": {
@@ -40,9 +40,26 @@
         "rmse": 103.01423984070604
       },
       "ridge": {
-        "mae": 57.099220241506046,
+        "mae": 57.09922024150603,
         "rmse": 84.23664045973015
       }
+    }
+  },
+  "intervals": {
+    "method": "symmetric held-out absolute residual order statistic",
+    "calibration_window": "validation",
+    "calibration": {
+      "target_coverage": 0.9,
+      "radius": 140.3516480680945,
+      "calibration_count": 723,
+      "order_statistic": 652
+    },
+    "test": {
+      "count": 723,
+      "empirical_coverage": 0.8934993084370678,
+      "target_coverage": 0.9,
+      "coverage_gap": -0.006500691562932204,
+      "mean_width": 280.703296136189
     }
   }
 }

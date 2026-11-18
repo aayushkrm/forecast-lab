@@ -44,5 +44,22 @@
         "rmse": 3.1944230376580327
       }
     }
+  },
+  "intervals": {
+    "method": "symmetric held-out absolute residual order statistic",
+    "calibration_window": "validation",
+    "calibration": {
+      "target_coverage": 0.9,
+      "radius": 5.443976214470013,
+      "calibration_count": 1314,
+      "order_statistic": 1184
+    },
+    "test": {
+      "count": 1314,
+      "empirical_coverage": 0.8987823439878234,
+      "target_coverage": 0.9,
+      "coverage_gap": -0.0012176560121766045,
+      "mean_width": 10.887952428940025
+    }
   }
 }

@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 from .data import generate_series, load_csv
 from .model import MIN_HISTORY, fit_model, predict
+from .intervals import calibrate, evaluate_intervals
 
 
 def metrics(actual, predicted):
@@ -26,6 +27,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="artifacts/model.json")
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--coverage", type=float, default=0.9, help="Target interval coverage, strictly between 0 and 1")
     parser.add_argument("--csv", help="CSV with consecutive UTC hourly timestamp,value columns")
     args = parser.parse_args()
     series = load_csv(args.csv) if args.csv else generate_series(seed=args.seed)
@@ -35,6 +37,13 @@ def main():
                        "train_end_exclusive": train_end, "validation_end_exclusive": validation_end},
               "evaluation": {"validation": evaluate(series, train_end, validation_end, model),
                              "test": evaluate(series, validation_end, len(series), model)}}
+    # The model stays fixed. Each forecast uses only values before its target.
+    validation_predictions = [predict(model, series[:i], i) for i in range(train_end, validation_end)]
+    calibration = calibrate(series[train_end:validation_end], validation_predictions, args.coverage)
+    test_predictions = [predict(model, series[:i], i) for i in range(validation_end, len(series))]
+    report["intervals"] = {"method": "symmetric held-out absolute residual order statistic",
+                           "calibration_window": "validation", "calibration": calibration,
+                           "test": evaluate_intervals(series[validation_end:], test_predictions, calibration)}
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(model, indent=2, allow_nan=False) + "\n", encoding="utf-8")

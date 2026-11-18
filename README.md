@@ -43,6 +43,8 @@ The recorded run selected 4,820 hours, nominally 11 April–29 October 2012. The
 | Same hour previous week | 60.22 | 103.01 |
 | Ridge, lagged features | 57.10 | 84.24 |
 
+For offline uncertainty evaluation, the fixed ridge model uses the 723 validation residuals to calibrate a symmetric interval with a 90% target. The 723 test forecasts achieved **89.35%** coverage, with mean width **280.70 rentals/hour**. The interval can extend below zero; it is not clipped. The service still returns point forecasts only. These are empirical results from one dependent time series, not a coverage guarantee.
+
 The model improves on these baselines in this one selected historical period. It is not a deployment, a current demand forecast, or a claim of generalization across cities. See [experiment details](docs/experiment.md) and the machine-readable [report](artifacts/uci-bike_report.json).
 
 ## Design and limits
