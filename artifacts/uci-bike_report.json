@@ -1,0 +1,48 @@
+{
+  "data": {
+    "source": "csv",
+    "csv_path": "data/uci-bike-hourly.csv",
+    "seed": null,
+    "points": 4820,
+    "train_end_exclusive": 3374,
+    "validation_end_exclusive": 4097
+  },
+  "evaluation": {
+    "validation": {
+      "naive_last_value": {
+        "mae": 103.08298755186722,
+        "rmse": 150.03575876213833
+      },
+      "seasonal_naive_24h": {
+        "mae": 85.1313969571231,
+        "rmse": 145.45883905394393
+      },
+      "seasonal_naive_168h": {
+        "mae": 61.59197786998617,
+        "rmse": 111.76235036849104
+      },
+      "ridge": {
+        "mae": 56.114316093111896,
+        "rmse": 84.53637302779816
+      }
+    },
+    "test": {
+      "naive_last_value": {
+        "mae": 97.4121715076072,
+        "rmse": 144.38280434619412
+      },
+      "seasonal_naive_24h": {
+        "mae": 98.2088520055325,
+        "rmse": 155.30568171121183
+      },
+      "seasonal_naive_168h": {
+        "mae": 60.221300138312586,
+        "rmse": 103.01423984070604
+      },
+      "ridge": {
+        "mae": 57.099220241506046,
+        "rmse": 84.23664045973015
+      }
+    }
+  }
+}

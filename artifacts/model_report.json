@@ -1,0 +1,48 @@
+{
+  "data": {
+    "source": "synthetic",
+    "csv_path": null,
+    "seed": 42,
+    "points": 8760,
+    "train_end_exclusive": 6132,
+    "validation_end_exclusive": 7446
+  },
+  "evaluation": {
+    "validation": {
+      "naive_last_value": {
+        "mae": 4.161617914263348,
+        "rmse": 5.218701291030816
+      },
+      "seasonal_naive_24h": {
+        "mae": 4.619416990940179,
+        "rmse": 5.682449269149765
+      },
+      "seasonal_naive_168h": {
+        "mae": 3.3980485135837664,
+        "rmse": 4.273565190858159
+      },
+      "ridge": {
+        "mae": 2.6063094056553924,
+        "rmse": 3.2674020761763547
+      }
+    },
+    "test": {
+      "naive_last_value": {
+        "mae": 4.119352944473216,
+        "rmse": 5.137961785432749
+      },
+      "seasonal_naive_24h": {
+        "mae": 4.570766568020925,
+        "rmse": 5.590313594688364
+      },
+      "seasonal_naive_168h": {
+        "mae": 3.2773702726736125,
+        "rmse": 4.142370638239504
+      },
+      "ridge": {
+        "mae": 2.5396999202867097,
+        "rmse": 3.1944230376580327
+      }
+    }
+  }
+}
